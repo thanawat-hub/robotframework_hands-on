@@ -5,10 +5,16 @@ by file
 git rm --cached .gitignore
 ```
 
+by folder
+```commandline
+git rm -r --cached robot_venv
+```
+
 by all
 ```commandline
 git rm --cached -r .
 ```
+
 
 และก็ตาม step
 ```commandline
