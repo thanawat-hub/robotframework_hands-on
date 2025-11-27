@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.7 on win32)" generated="2025-11-26T16:13:34.426551" rpa="false" schemaversion="5">
+<suite id="s1" name="Sck-Practice" source="D:\________Z____________Desktop_now\we_love_bug\_learn\E2E-Test\UI\SCK_Shopping\sck-practice.robot">
+<test id="s1-t1" name="ซื้อสินค้า SCK-online และชำระเงินสำเร็จ" line="24">
+<kw name="เข้าหน้าเว็บSCK-Shopping mall และใส่คำค้นหา" owner="sck">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:34.790551" level="INFO">Opening browser 'chrome' to base url 'http://sck-dojo.ddns.net:8000/product/list'.</msg>
+<arg>url=${URL_SCK}</arg>
+<arg>browser=${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-11-26T16:13:34.790551" elapsed="1.332369"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-11-26T16:13:36.122920" elapsed="0.400999"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=search-product-input</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-26T16:13:36.523919" elapsed="0.092006"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:36.616918" level="INFO">Typing text 'Balance Training Bicycle' into text field 'id=search-product-input'.</msg>
+<arg>id=search-product-input</arg>
+<arg>text=Balance Training Bicycle</arg>
+<arg>clear=True</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:36.616918" elapsed="0.290002"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:36.907919" level="INFO">Sending key(s) ('RETURN',) to id=search-product-input element.</msg>
+<msg time="2025-11-26T16:13:37.194540" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2025-11-26T16:13:37.194540" level="INFO">Releasing special key RETURN.</msg>
+<arg>id=search-product-input</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-11-26T16:13:36.907919" elapsed="0.408460"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:34.789551" elapsed="2.527826"/>
+</kw>
+<kw name="ตรวจสอบผลลัพธ์การค้นหา(ชื่อ)" owner="sck">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=product-card-1</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-26T16:13:37.319378" elapsed="0.257874"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:37.624633" level="INFO">Element 'id=product-card-1' contains text 'Balance Training Bicycle'.</msg>
+<arg>id=product-card-1</arg>
+<arg>expected=Balance Training Bicycle</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:37.577252" elapsed="0.048417"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:37.318375" elapsed="0.307294"/>
+</kw>
+<kw name="คลิกเลือกสินค้า" owner="sck">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:37.626110" level="INFO">Clicking element 'id=product-card-1'.</msg>
+<arg>id=product-card-1</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:37.626110" elapsed="0.157122"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:37.626110" elapsed="0.158123"/>
+</kw>
+<kw name="ตรวจสอบผลลัพธ์เลือกสินค้าจำนวนสินค้าที่ต้องการ(ชื่อ จำนวน ราคา point stock)" owner="sck">
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:37.784233" level="INFO">Verifying element 'id=product-detail-product-name' contains exact text 'Balance Training Bicycle'.</msg>
+<arg>id=product-detail-product-name</arg>
+<arg>expected=Balance Training Bicycle</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:37.784233" elapsed="0.028000"/>
+</kw>
+<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:37.839235" level="INFO">Element 'id=product-detail-quantity-input' attribute 'value' contains value '1'.</msg>
+<arg>id=product-detail-quantity-input</arg>
+<arg>attribute=value</arg>
+<arg>expected=1</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<status status="PASS" start="2025-11-26T16:13:37.812233" elapsed="0.027002"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:37.861232" level="INFO">Element 'id=product-detail-price-thb' contains text '4,314.60'.</msg>
+<arg>id=product-detail-price-thb</arg>
+<arg>expected=4,314.60</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:37.840234" elapsed="0.020998"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:37.885236" level="INFO">Element 'id=product-detail-point' contains text '43'.</msg>
+<arg>id=product-detail-point</arg>
+<arg>expected=43</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:37.861232" elapsed="0.024004"/>
+</kw>
+<kw name="Element Text Should Not Be" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:37.886235" level="INFO">Verifying element 'id=product-detail-stock' does not contain exact text '0'.</msg>
+<arg>id=product-detail-stock</arg>
+<arg>not_expected=0</arg>
+<doc>Verifies that element ``locator`` does not contain exact the text ``not_expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:37.885236" elapsed="0.023998"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:37.784233" elapsed="0.125001"/>
+</kw>
+<kw name="คลิกเลือกสินค้าลงตระกร้า" owner="sck">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:37.910239" level="INFO">Clicking element 'id=product-detail-add-to-cart-btn'.</msg>
+<arg>id=product-detail-add-to-cart-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:37.910239" elapsed="0.056993"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:37.910239" elapsed="0.056993"/>
+</kw>
+<kw name="ตรวจสอบเลขบนตระกร้า" owner="sck">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id=header-menu-cart-btn</arg>
+<arg>1</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-11-26T16:13:37.967232" elapsed="0.243505"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:38.223208" level="INFO">Element 'id=header-menu-cart-btn' contains text '1'.</msg>
+<arg>id=header-menu-cart-btn</arg>
+<arg>expected=1</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.211738" elapsed="0.011470"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:37.967232" elapsed="0.255976"/>
+</kw>
+<kw name="คลิกตะกร้าสินค้า" owner="sck">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id=header-menu-cart-btn</arg>
+<arg>1</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.223208" elapsed="0.013687"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:38.237895" level="INFO">Clicking element 'id=header-menu-cart-btn'.</msg>
+<arg>id=header-menu-cart-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.237895" elapsed="0.066137"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:38.223208" elapsed="0.080824"/>
+</kw>
+<kw name="ตรวจสอบผลลัพธ์ในตระกร้า จะต้องมี Balance Training Bicycle จำนวน ราคา point stock" owner="sck" source_name="ตรวจสอบผลลัพธ์ในตระกร้า จะต้องมี ${product_name} จำนวน ราคา point stock">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${POPUP_CART}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.305035" elapsed="0.021003"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id=product-1-name</arg>
+<arg>${product_name}</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.326038" elapsed="0.238409"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id=product-1-price</arg>
+<arg>4,314.60</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.564447" elapsed="0.244583"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id=product-1-point</arg>
+<arg>43</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.809030" elapsed="0.027368"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:38.865200" level="INFO">Element 'headlessui-dialog-panel-:r1:' contains text 'Balance Training Bicycle'.</msg>
+<arg>${POPUP_CART}</arg>
+<arg>expected=Balance Training Bicycle</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.836398" elapsed="0.028802"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:38.893645" level="INFO">Element 'headlessui-dialog-panel-:r1:' contains text '1'.</msg>
+<arg>${POPUP_CART}</arg>
+<arg>expected=1</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.865200" elapsed="0.029446"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:38.926942" level="INFO">Element 'headlessui-dialog-panel-:r1:' contains text '4,314.60'.</msg>
+<arg>${POPUP_CART}</arg>
+<arg>expected=4,314.60</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.894646" elapsed="0.032296"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:38.954946" level="INFO">Element 'headlessui-dialog-panel-:r1:' contains text '43'.</msg>
+<arg>${POPUP_CART}</arg>
+<arg>expected=43</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.926942" elapsed="0.028004"/>
+</kw>
+<kw name="Element Text Should Not Be" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:38.954946" level="INFO">Verifying element 'headlessui-dialog-panel-:r1:' does not contain exact text '0 # มันควรเหลือมากกว่า จำนวน quantity ที่เลือกลงตระกร้า -&gt; แต่จะทำยังไง'.</msg>
+<arg>${POPUP_CART}</arg>
+<arg>not_expected=0 # มันควรเหลือมากกว่า จำนวน quantity ที่เลือกลงตระกร้า -&gt; แต่จะทำยังไง</arg>
+<doc>Verifies that element ``locator`` does not contain exact the text ``not_expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.954946" elapsed="0.025998"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:38.305035" elapsed="0.675909"/>
+</kw>
+<kw name="คลิกการชำระเงิน(checkout)" owner="sck">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:38.982957" level="INFO">Clicking element 'id=shopping-cart-checkout-btn'.</msg>
+<arg>id=shopping-cart-checkout-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:38.981958" elapsed="0.250023"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:38.981958" elapsed="0.250023"/>
+</kw>
+<kw name="ยืนยันข้อมูลการจัดส่งคำสั่งซื้อ" owner="sck">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:39.233983" level="INFO">Typing text 'Thanawat' into text field 'id=shipping-form-first-name-input'.</msg>
+<arg>id=shipping-form-first-name-input</arg>
+<arg>text=Thanawat</arg>
+<arg>clear=True</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:39.232984" elapsed="0.118999"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:39.352982" level="INFO">Typing text 'Boon' into text field 'id=shipping-form-last-name-input'.</msg>
+<arg>id=shipping-form-last-name-input</arg>
+<arg>text=Boon</arg>
+<arg>clear=True</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:39.351983" elapsed="0.112230"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:39.465212" level="INFO">Typing text '205 เพชรเกษม' into text field 'id=shipping-form-address-input'.</msg>
+<arg>id=shipping-form-address-input</arg>
+<arg>text=205 เพชรเกษม</arg>
+<arg>clear=True</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:39.464213" elapsed="0.118753"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:39.583959" level="INFO">Clicking element 'id=shipping-form-province-select'.</msg>
+<arg>id=shipping-form-province-select</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:39.583959" elapsed="0.111002"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:39.695959" level="INFO">Selecting options from selection list 'id=shipping-form-province-select' by labels กระบี่, กรุงเทพมหานคร.</msg>
+<arg>id=shipping-form-province-select</arg>
+<arg>กระบี่</arg>
+<arg>กรุงเทพมหานคร</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-11-26T16:13:39.694961" elapsed="0.205001"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-11-26T16:13:44.901041" level="INFO">Slept 5 seconds.</msg>
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-11-26T16:13:39.899962" elapsed="5.001079"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:44.901939" level="INFO">Clicking element 'id=shipping-form-district-select'.</msg>
+<arg>id=shipping-form-district-select</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:44.901939" elapsed="0.089314"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:44.992250" level="INFO">Selecting options from selection list 'id=shipping-form-district-select' by label เขตบางแค.</msg>
+<arg>id=shipping-form-district-select</arg>
+<arg>เขตบางแค</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-11-26T16:13:44.991253" elapsed="0.077536"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.069789" level="INFO">Clicking element 'id=shipping-form-sub-district-select'.</msg>
+<arg>id=shipping-form-sub-district-select</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.069789" elapsed="0.085445"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.155234" level="INFO">Selecting options from selection list 'id=shipping-form-sub-district-select' by label หลักสอง.</msg>
+<arg>id=shipping-form-sub-district-select</arg>
+<arg>หลักสอง</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.155234" elapsed="0.073570"/>
+</kw>
+<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.245859" level="INFO">Element 'id=shipping-form-zipcode-input' attribute 'value' contains value '10160'.</msg>
+<arg>id=shipping-form-zipcode-input</arg>
+<arg>attribute=value</arg>
+<arg>expected=10160</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.228804" elapsed="0.017055"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.245859" level="INFO">Typing text '0812345678' into text field 'id=shipping-form-mobile-input'.</msg>
+<arg>id=shipping-form-mobile-input</arg>
+<arg>text=0812345678</arg>
+<arg>clear=True</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.245859" elapsed="0.099391"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.346252" level="INFO">Clicking element 'id=shipping-method-1-name'.</msg>
+<arg>id=shipping-method-1-name</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.346252" elapsed="0.072001"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.418253" level="INFO">Typing text 'Thanawat Boon' into text field 'id=payment-credit-form-fullname-input'.</msg>
+<arg>id=payment-credit-form-fullname-input</arg>
+<arg>text=Thanawat Boon</arg>
+<arg>clear=True</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.418253" elapsed="0.121998"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.541250" level="INFO">Typing text '4111111111111111' into text field 'id=payment-credit-form-card-number-input'.</msg>
+<arg>id=payment-credit-form-card-number-input</arg>
+<arg>text=4111111111111111</arg>
+<arg>clear=True</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.540251" elapsed="0.157999"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.698250" level="INFO">Typing text '12/25' into text field 'id=payment-credit-form-expiry-input'.</msg>
+<arg>id=payment-credit-form-expiry-input</arg>
+<arg>text=12/25</arg>
+<arg>clear=True</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.698250" elapsed="0.098003"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.797257" level="INFO">Typing password into text field 'id=payment-credit-form-cvv-input'.</msg>
+<msg time="2025-11-26T16:13:45.835252" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=payment-credit-form-cvv-input</arg>
+<arg>password=${SECURITY_CODE}</arg>
+<arg>clear=True</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.796253" elapsed="0.092022"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id=order-summary-subtotal-price</arg>
+<arg>text=4,314.60</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.888275" elapsed="0.020012"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.925248" level="INFO">Element 'id=order-summary-subtotal-price' contains text '4,314.60'.</msg>
+<arg>id=order-summary-subtotal-price</arg>
+<arg>expected=4,314.60</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.908287" elapsed="0.016961"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id=order-summary-receive-point-price</arg>
+<arg>text=43</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.926288" elapsed="0.018965"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.961252" level="INFO">Element 'id=order-summary-receive-point-price' contains text '43'.</msg>
+<arg>id=order-summary-receive-point-price</arg>
+<arg>expected=43</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.945253" elapsed="0.017000"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id=order-summary-shipping-fee-price</arg>
+<arg>text=50.00</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.962253" elapsed="0.017998"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:45.998251" level="INFO">Element 'id=order-summary-shipping-fee-price' contains text '50.00'.</msg>
+<arg>id=order-summary-shipping-fee-price</arg>
+<arg>expected=50.00</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.981253" elapsed="0.016998"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id=order-summary-total-payment-price</arg>
+<arg>text=4,364.60</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-11-26T16:13:45.998251" elapsed="0.021045"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:46.034251" level="INFO">Element 'id=order-summary-total-payment-price' contains text '4,364.60'.</msg>
+<arg>id=order-summary-total-payment-price</arg>
+<arg>expected=4,364.60</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-11-26T16:13:46.019296" elapsed="0.014955"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:46.034251" level="INFO">Clicking element 'id=payment-now-btn'.</msg>
+<arg>id=payment-now-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:46.034251" elapsed="0.054001"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:39.232984" elapsed="6.855268"/>
+</kw>
+<kw name="กรอกรหัสรหัสผ่านครั้งเดียว(OTP)" owner="sck">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=otp-input</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-26T16:13:46.089254" elapsed="0.797345"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:46.887599" level="INFO">Typing text '123456' into text field 'id=otp-input'.</msg>
+<arg>id=otp-input</arg>
+<arg>text=123456</arg>
+<arg>clear=True</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:46.886599" elapsed="0.063370"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:46.950966" level="INFO">Clicking button 'PAY NOW'.</msg>
+<arg>PAY NOW</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:46.950966" elapsed="0.081684"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:46.088252" elapsed="0.944398"/>
+</kw>
+<kw name="กรอกอีเมลเบอร์โทรเพื่อรับข่าวสารโปรโมชั่น" owner="sck">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id=notification-form-email-input</arg>
+<arg>timeout=${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-11-26T16:13:47.033692" elapsed="0.436864"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:47.471591" level="INFO">Typing text 'thanawat123' into text field 'id=notification-form-email-input'.</msg>
+<arg>id=notification-form-email-input</arg>
+<arg>text=thanawat123</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:47.470556" elapsed="0.080897"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:47.552451" level="INFO">Typing text '0812345678' into text field 'id=notification-form-mobile-input'.</msg>
+<arg>id=notification-form-mobile-input</arg>
+<arg>text=0812345678</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:47.552451" elapsed="0.080237"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:47.633686" level="INFO">Clicking element 'id=send-notification-btn'.</msg>
+<arg>id=send-notification-btn</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-26T16:13:47.632688" elapsed="0.058689"/>
+</kw>
+<status status="PASS" start="2025-11-26T16:13:47.032650" elapsed="0.658727"/>
+</kw>
+<kw name="ล้างแอพให้กลับสู่สถานะเริ่มต้น" owner="sck" type="TEARDOWN">
+<kw name="Delete All Cookies" owner="SeleniumLibrary">
+<msg time="2025-11-26T16:13:47.836375" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-11-26T16:13:47.840870" level="FAIL">UnexpectedAlertPresentException: Alert Text: Send notification completed.
+
+Click OK for go to Product lists.
+Message: unexpected alert open: {Alert text : Send notification completed.
+
+Click OK for go to Product lists.}
+  (Session info: chrome=142.0.7444.176)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6dea7a235
+	0x7ff6de7d2630
+	0x7ff6de5616dd
+	0x7ff6de60c518
+	0x7ff6de5ab0ed
+	0x7ff6de5abf63
+	0x7ff6deaa5d60
+	0x7ff6dea9fe8a
+	0x7ff6deac1005
+	0x7ff6de7ed71e
+	0x7ff6de7f4e1f
+	0x7ff6de7db7c4
+	0x7ff6de7db97f
+	0x7ff6de7c18e8
+	0x7ffbe0167374
+	0x7ffbe147cc91
+</msg>
+<doc>Deletes all cookies.</doc>
+<status status="FAIL" start="2025-11-26T16:13:47.692378" elapsed="0.156996">UnexpectedAlertPresentException: Alert Text: Send notification completed.
+
+Click OK for go to Product lists.
+Message: unexpected alert open: {Alert text : Send notification completed.
+
+Click OK for go to Product lists.}
+  (Session info: chrome=142.0.7444.176)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6dea7a235
+	0x7ff6de7d2630
+	0x7ff6de5616dd
+	0x7ff6de60c518
+	0x7ff6de5ab0ed
+	0x7ff6de5abf63
+	0x7ff6deaa5d60
+	0x7ff6dea9fe8a
+	0x7ff6deac1005
+	0x7ff6de7ed71e
+	0x7ff6de7f4e1f
+	0x7ff6de7db7c4
+	0x7ff6de7db97f
+	0x7ff6de7c18e8
+	0x7ffbe0167374
+	0x7ffbe147cc91
+</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-11-26T16:13:47.849374" elapsed="2.335682"/>
+</kw>
+<status status="FAIL" start="2025-11-26T16:13:47.691377" elapsed="2.493679">UnexpectedAlertPresentException: Alert Text: Send notification completed.
+
+Click OK for go to Product lists.
+Message: unexpected alert open: {Alert text : Send notification completed.
+
+Click OK for go to Product lists.}
+  (Session info: chrome=142.0.7444.176)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6dea7a235
+	0x7ff6de7d2630
+	0x7ff6de5616dd
+	0x7ff6de60c518
+	0x7ff6de5ab0ed
+	0x7ff6de5abf63
+	0x7ff6deaa5d60
+	0x7ff6dea9fe8a
+	0x7ff6deac1005
+	0x7ff6de7ed71e
+	0x7ff6de7f4e1f
+	0x7ff6de7db7c4
+	0x7ff6de7db97f
+	0x7ff6de7c18e8
+	0x7ffbe0167374
+	0x7ffbe147cc91
+</status>
+</kw>
+<status status="FAIL" start="2025-11-26T16:13:34.788551" elapsed="15.396505">Teardown failed:
+UnexpectedAlertPresentException: Alert Text: Send notification completed.
+
+Click OK for go to Product lists.
+Message: unexpected alert open: {Alert text : Send notification completed.
+
+Click OK for go to Product lists.}
+  (Session info: chrome=142.0.7444.176)
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff6dea7a235
+	0x7ff6de7d2630
+	0x7ff6de5616dd
+	0x7ff6de60c518
+	0x7ff6de5ab0ed
+	0x7ff6de5abf63
+	0x7ff6deaa5d60
+	0x7ff6dea9fe8a
+	0x7ff6deac1005
+	0x7ff6de7ed71e
+	0x7ff6de7f4e1f
+	0x7ff6de7db7c4
+	0x7ff6de7db97f
+	0x7ff6de7c18e8
+	0x7ffbe0167374
+	0x7ffbe147cc91
+</status>
+</test>
+<status status="FAIL" start="2025-11-26T16:13:34.427551" elapsed="15.758506"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Sck-Practice" id="s1" pass="0" fail="1" skip="0">Sck-Practice</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

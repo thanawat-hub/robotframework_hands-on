@@ -11,4 +11,7 @@ __pycache__/ # Python compiled files
 .venv/ # Virtual environment directory
 env/ # Another common virtual environment directory name
 
-*_venv/ # Any directory ending with _venv
+# Any directory ending with _venv
+venv/
+.venv/
+*_venv/
