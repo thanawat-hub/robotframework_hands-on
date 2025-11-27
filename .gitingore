@@ -1,0 +1,14 @@
+# Robot Framework generated files
+*.log
+*.html
+*.xml
+output.xml
+report.html
+log.html
+.DS_Store # macOS specific
+__pycache__/ # Python compiled files
+.pytest_cache/ # pytest cache
+.venv/ # Virtual environment directory
+env/ # Another common virtual environment directory name
+
+*_venv/ # Any directory ending with _venv
