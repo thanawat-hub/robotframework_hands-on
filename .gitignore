@@ -5,6 +5,10 @@
 output.xml
 report.html
 log.html
+*.png
+*.jpg
+*.jpeg
+
 .DS_Store # macOS specific
 __pycache__/ # Python compiled files
 .pytest_cache/ # pytest cache
