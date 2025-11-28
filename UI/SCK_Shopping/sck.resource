@@ -18,7 +18,7 @@
     Element Text Should Be    id=product-detail-product-name    expected=Balance Training Bicycle
     Element Attribute Value Should Be    id=product-detail-quantity-input    attribute=value    expected=1
 #    Element Should Contain    id=product-detail-price-thb    expected=4,314.60 -> เปลี่ยนจากแบบนี้เป็นแบบข้างล่าง เพราะ contain มันเสี่ยง อาจจะมีอะไรอยู่ข้างหน้า เช่น 14,314.60 บาท ก็จะแตก
-    Element Text Should Be    id=product-detail-price    expected=$4,314.60    #ถ้าอยากใส่ $ด้วย ก็ทำได้ทั้งตัวแปร
+    Element Text Should Be    id=product-detail-price-thb    expected=$4,314.60    #ถ้าอยากใส่ $ด้วย ก็ทำได้ทั้งตัวแปร
 #    Element Text Should Be    id=product-detail-price-usd    $${price}    #ก็จะหมายถึง $4314.60 ได้เช่นกัน
     
     Element Should Contain    id=product-detail-point    expected=43
@@ -46,7 +46,7 @@
 #    Wait Until Element Contains    id=product-1-quantity-input    1    timeout=${TIMEOUT}
     Wait Until Element Contains    id=product-1-price    4,314.60    timeout=${TIMEOUT}
     Wait Until Element Contains    id=product-1-point    43    timeout=${TIMEOUT}
-#    Wait Until Element Contains    id=product-1-stock    not_expected=0    timeout=${TIMEOUT}
+#    Element Text Should Not Be    id=product-1-stock    not_expected=0    timeout=${TIMEOUT}
     # comment -> ตัวแปรใหญ่ ย่อย
     Element Should Contain    ${POPUP_CART}    expected=Balance Training Bicycle
     Element Should Contain    ${POPUP_CART}    expected=1
@@ -93,7 +93,6 @@
     # ผิด เพราะมันเป็น การไปหาคำว่า labels=กรุงเทพมหานคร ไม่ใช่แค่ กรุงเทพมหานคร ->
     Select From List By Label    id=shipping-form-province-select   กระบี่    กรุงเทพมหานคร
     #  ถ้าใส่หลายๆตัวก็เอาตัวสุดท้าย
-    sleep    5
 
     Click Element    id=shipping-form-district-select
     Select From List By Label   id=shipping-form-district-select   เขตบางแค
