@@ -29,7 +29,7 @@ const loginData = [
 
   {
       testName: 'ล็อกอินเข้าสู่ระบบไม่สำเร็จกรณีไม่กรอก Username แต่กรอก Password',
-      username: null,
+      username: '',
       password: 'mode',
       expectedResult: 'Login failed'
   },
@@ -37,14 +37,14 @@ const loginData = [
   {
       testName: 'ล็อกอินเข้าสู่ระบบไม่สำเร็จกรณีกรอก Username ถูก แต่ไม่กรอก Password',
       username: 'demo',
-      password: null,
+      password: '',
       expectedResult: 'Login failed'
   },
 
   {
       testName: 'ล็อกอินเข้าสู่ระบบไม่สำเร็จกรณีไม่กรอกทั้ง Username และ Password',
-      username: null,
-      password: null,
+      username: '',
+      password: '',
       expectedResult: 'Login failed'
   }
 ];
@@ -60,8 +60,12 @@ loginData.forEach(({ testName, username, password, expectedResult }) => {
         });
 
         await test.step('ใส่ username และ password', async () => {
+//             ไม่ควรมี logic แบบนี้ สามารถไปแก้ค่าให้ใช้ "" เปล่าได้เลย
+//             username && await page.locator('[id=username_field]').fill(username);
+//             password && await page.locator('#password_field').fill(password);
             username && await page.locator('[id=username_field]').fill(username); // -> แบบนี้อ่านเข้าใจง่าย
             password && await page.locator('#password_field').fill(password); // -> แบบนี้ก็ได้ เรียกว่าใช้ dom selector | โดย # แปลว่า id นั้นหละ
+
             await page.locator('#login_button').click();
         });
 
