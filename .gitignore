@@ -23,3 +23,16 @@ env/ # Another common virtual environment directory name
 venv/
 .venv/
 *_venv/
+
+
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+tests/
+*.json
+*.config.ts
