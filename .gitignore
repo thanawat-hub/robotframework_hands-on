@@ -34,6 +34,7 @@ blob-report/
 playwright/.cache/
 playwright/.auth/
 *.json
+!package.json
 !playwright.config.ts
 # ถ้า push ไปแล้วให้ใช้
 # git rm --cached playwright.config.ts
