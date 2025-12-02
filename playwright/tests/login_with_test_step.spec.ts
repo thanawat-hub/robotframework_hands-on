@@ -4,25 +4,37 @@
 // ````
 import { test, expect } from '@playwright/test';
 
-// has title คือชื่อ test cases
-test('Login and Verify', async ({ page }) => {
+// Parameterized Tests -> https://playwright.dev/docs/test-parameterize
+const loginData = [
+  {
+      username: 'demo',
+      password: 'mode',
+      expected: 'Welcome'
+  }
+];
 
-    await test.step('user open website', async () => {
-        await page.goto('/');
+loginData.forEach(({ username, password, expected }) => {
+
+    // has title คือชื่อ test cases
+    test('Login and Verify', async ({ page }) => {
+
+        await test.step('user open website', async () => {
+            await page.goto('/');
+        });
+
+        await test.step('ใส่ username และ password', async () => {
+            await page.locator('[id=username_field]').fill(username); // -> แบบนี้อ่านเข้าใจง่าย
+            await page.locator('#password_field').fill(password); // -> แบบนี้ก็ได้ เรียกว่าใช้ dom selector | โดย # แปลว่า id นั้นหละ
+            await page.locator('#login_button').click();
+        });
+
+      // ตรวจสอบผลการ login -> https://playwright.dev/docs/test-assertions
+        // ถ้าไม่ใส่ await มันจะทำไปก่อน page โหลดเสร็จ -> ดูได้ใน best-practices https://playwright.dev/docs/best-practices
+        await test.step('ตรวจสอบผลการ login', async () => {
+            await expect(page.locator('[id=container]')).toContainText(expected)
+        });
+
+    // ต่อไป ก็จะมีวิธีการ pass argument ได้เหมือนกับ Robot Framework เช่นกัน
     });
 
-    await test.step('ใส่ username และ password', async () => {
-        await page.locator('[id=username_field]').fill("demo"); // -> แบบนี้อ่านเข้าใจง่าย
-        await page.locator('#password_field').fill("mode"); // -> แบบนี้ก็ได้ เรียกว่าใช้ dom selector | โดย # แปลว่า id นั้นหละ
-        await page.locator('#login_button').click();
-    });
-
-  // ตรวจสอบผลการ login -> https://playwright.dev/docs/test-assertions
-    // ถ้าไม่ใส่ await มันจะทำไปก่อน page โหลดเสร็จ -> ดูได้ใน best-practices https://playwright.dev/docs/best-practices
-    await test.step('ตรวจสอบผลการ login', async () => {
-        await expect(page.locator('[id=container]')).toContainText('Welcome')
-    });
-
-// ต่อไป ก็จะมีวิธีการ pass argument ได้เหมือนกับ Robot Framework เช่นกัน
 });
-
