@@ -8,7 +8,7 @@ import { test, expect } from '@playwright/test';
 test('Login and Verify', async ({ page }) => {
 
     await test.step('user open website', async () => {
-        await page.goto('https://demo-login-workshop.vercel.app/');
+        await page.goto('/');
     });
 
     await test.step('ใส่ username และ password', async () => {
