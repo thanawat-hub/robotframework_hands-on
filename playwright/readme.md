@@ -20,3 +20,6 @@ note in https://www.notion.so/Day-30-Playwright-Regression-2bda555c74b3804d8897e
 {your_file_name}.spec.ts
 or
 {your_file_name}.test.ts
+
+.
+# ก่อน push ให้ใส่และเช็คสีเหลืองถ้าเป็น pycharm หลัง push แล้วอยากให้ ใน pycharm update ก็ต้องใช้ git status

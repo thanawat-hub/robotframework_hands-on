@@ -35,3 +35,5 @@ playwright/.cache/
 playwright/.auth/
 *.json
 *.config.ts
+
+# ก่อน push ให้ใส่และเช็คสีเหลืองถ้าเป็น pycharm หลัง push แล้วอยากให้ ใน pycharm update ก็ต้องใช้ git status
