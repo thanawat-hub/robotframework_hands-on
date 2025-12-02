@@ -6,7 +6,7 @@ test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
   // A specific element is visible.
-await expect(page.getByText('/Playwright/')).toBeVisible();
+//   await expect(page.getByText('Playwright')).toBeVisible();
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
 });

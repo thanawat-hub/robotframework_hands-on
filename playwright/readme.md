@@ -20,6 +20,16 @@ note in https://www.notion.so/Day-30-Playwright-Regression-2bda555c74b3804d8897e
 {your_file_name}.spec.ts
 or
 {your_file_name}.test.ts
-
+.
+how to run file test
+เข้ามาที่ใน folder playwright (ที่มี package.json นั้นก่อน)
+run แบบ อ่านจาก package.json
+```commandline
+npm test {your_file_name}.{spec,test}.ts
+```
+รันทั้งหมด
+```commandline
+npm test
+```
 .
 # ก่อน push ให้ใส่และเช็คสีเหลืองถ้าเป็น pycharm หลัง push แล้วอยากให้ ใน pycharm update ก็ต้องใช้ git status
