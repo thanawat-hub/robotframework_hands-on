@@ -59,7 +59,7 @@ loginData.forEach(({ testName, username, password, expectedResult }) => {
             await page.goto('/');
         });
 
-        await test.step('ใส่ username และ password', async () => {
+        await test.step(`กรณีผู้ใช้กรอก username ${username} password ${password}`, async () => {
 //             ไม่ควรมี logic แบบนี้ สามารถไปแก้ค่าให้ใช้ "" เปล่าได้เลย
 //             username && await page.locator('[id=username_field]').fill(username);
 //             password && await page.locator('#password_field').fill(password);
@@ -71,7 +71,7 @@ loginData.forEach(({ testName, username, password, expectedResult }) => {
 
       // ตรวจสอบผลการ login -> https://playwright.dev/docs/test-assertions
         // ถ้าไม่ใส่ await มันจะทำไปก่อน page โหลดเสร็จ -> ดูได้ใน best-practices https://playwright.dev/docs/best-practices
-        await test.step('ตรวจสอบผลการ login', async () => {
+        await test.step(`ตรวจสอบผลการ login พบ ${expectedResult}`, async () => {
             await expect(page.locator('[id=container]')).toContainText(expectedResult)
         });
 
