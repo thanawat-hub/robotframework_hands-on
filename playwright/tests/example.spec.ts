@@ -1,5 +1,3 @@
-// how to run this file?
-// npx playwright test tests/example.spec.ts
 import { test, expect } from '@playwright/test';
 // has title คือชื่อ test cases
 test('has title', async ({ page }) => {
