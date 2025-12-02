@@ -15,3 +15,8 @@ Playwright -> เรียก โดยตรงกับ chrome เลย ไ�
   },
 
 note in https://www.notion.so/Day-30-Playwright-Regression-2bda555c74b3804d8897ea8004bae109?source=copy_link
+
+การตั้งชื่อ ไฟล์ test ได้แค่
+{your_file_name}.spec.ts
+or
+{your_file_name}.test.ts
