@@ -41,10 +41,11 @@ robot -v URL:https://dev.vercel.com -v BROWSER:firefox demo_login.robot
 ```
 
 
-#0. robot -v BROWSER:headlesschrome {filename}
-#```
-#robot -v BROWSER:headlesschrome sck-practice-after-feedback.robot
-#```
+run with headless chrome(ไม่ต้องเปิด browser ขึ้นมา)
+```
+robot -v BROWSER:headlesschrome sck-practice-after-feedback.robot
+```
 
-#step 1 เริ่มที่เขียน test case ก่อน แล้วค่อย map รวมเป็น keyword ทีหลัง
-#step 2 search Wait Until Element Is Visible ที่ตัวไหนที่จะเป็นตัวสุดท้าย และทำการรอที่ตัวนั้น (มี wait แปลว่า ต้องมี action จาก user ที่ทำให้ระบบเกิดการเปลี่ยนแปลง)
+### สรุป การเขียน test case
+step 1 เริ่มที่เขียน test case ก่อน แล้วค่อย map รวมเป็น keyword ทีหลัง
+step 2 search Wait Until Element Is Visible ที่ตัวไหนที่จะเป็นตัวสุดท้าย และทำการรอที่ตัวนั้น (มี wait แปลว่า ต้องมี action จาก user ที่ทำให้ระบบเกิดการเปลี่ยนแปลง)

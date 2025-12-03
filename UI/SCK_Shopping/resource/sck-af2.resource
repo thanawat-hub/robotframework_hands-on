@@ -1,3 +1,6 @@
+*** Comments ***
+ทำ Keywords ให้เป็น Arguments
+
 *** Keywords ***
 ลูกค้าเปิดเว็บไซต์ SCK-Shopping Mall และใส่คำค้นหา Balance
     Open Browser    url=${URL_SCK}    browser=${BROWSER}
@@ -7,10 +10,6 @@
     Press Keys    id=search-product-input    ENTER
     Log    ใส่คำค้นหาในช่องค้นหา สินค้าและกด Enter เพื่อค้นหา
 
-#Test Local Variable
-#    [Documentation]     การดูค่าใน log ต้องแตกออกมาดูในสุดของ html -> notion ref1
-#    Set Local Variable    ${my_secret}    1234567
-#    Log    ฉันเห็นความลับ: ${my_secret}
 
 ตรวจสอบผลลัพธ์การค้นหาสินค้า Balance
     [Documentation]    มี id ใช้ id | แต่ตรงนี้คือแค่อยากลองตามที่ได้ฟังอธิบาย | Log จะมีไว้ในตอนที่ user action
@@ -48,16 +47,18 @@
     Wait Until Element Contains    id=header-menu-cart-btn    1
     Click Element    id=header-menu-cart-btn
 
-ตรวจสอบราคา สินค้า Balance Training Bicycle ราคา $4,314.60 จำนวนที่จะซื้อ แต้มที่จะได้รับ 43 point และสินค้าคงเหลือในสต็อกในตระกร้า
-    Wait Until Element Is Visible    id=shopping-cart-continue-link    #รอตัวล่างสุดโผล่ขึ้นมาก่อน
-    Element Text Should Be    id=product-1-name    expected=Balance Training Bicycle
-#    Element Text Should Be    id=product-1-price    expected=฿4,314.60    #เช็คไม่ได้?
-#    Element Text Should Be    id=product-1-quantity-input    expected=1    #เช็คไม่ได้?
-#    Element Text Should Be    id=product-1-point    expected=43    #เช็คไม่ได้?
-#    Element Text Should Be    id=product-1-stock    not_expected=0    #มันควรเหลือมากกว่า จำนวน quantity ที่เลือกลงตระกร้า -> แต่จะรู้ได้ยังไง
-#    Element Text Should Be    id=shopping-cart-subtotal-price    expected=฿4,314.60    #Subtotal #เช็คไม่ได้?
-# พวกนี้มันขึ้น  but it was ''. หมดเลย เลยข้าม
-
+ตรวจสอบราคา สินค้า Balance Training Bicycle ราคา $4,314.60 จำนวนที่จะซื้อ แต้มที่จะได้รับ 43 point และสินค้าคงเหลือในสต็อก ในหน้าตระกร้า
+    [Arguments]    ${cart_product_name}    ${cart_product_price}    ${cart_product_points}    ${cart_product_qty}    ${cart_product_subtotal}
+    # [Arguments]    ${cart_product_name}    ${cart_product_price}    ${cart_product_points}    ${cart_product_stock}    ${cart_product_qty}    ${cart_product_subtotal}
+    Click Button    id=header-menu-cart-btn
+    Wait Until Element Is Visible    id=product-1-price
+    Element Text Should Be    id=product-1-name    ${cart_product_name}
+    Element Text Should Be    id=product-1-price    ฿${cart_product_price}
+    Element Text Should Be    id=product-1-point    ${cart_product_points} Points
+    # Element Text Should Be    id=product-1-stock    Stock ${cart_product_stock} items
+    Textfield Value Should Be    id=product-1-quantity-input    ${cart_product_qty}
+    Element Text Should Be    id=shopping-cart-subtotal-price    ฿${cart_product_subtotal}
+    Click Element    id=shopping-cart-checkout-btn
 
 #===
 
