@@ -23,3 +23,21 @@ env/ # Another common virtual environment directory name
 venv/
 .venv/
 *_venv/
+
+
+
+# Playwright
+node_modules/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+playwright/.auth/
+*.json
+!package.json
+!playwright.config.ts
+# ถ้า push ไปแล้วให้ใช้
+# git rm --cached playwright.config.ts
+*.config.ts
+
+# ก่อน push ให้ใส่และเช็คสีเหลืองถ้าเป็น pycharm หลัง push แล้วอยากให้ ใน pycharm update ก็ต้องใช้ git status
