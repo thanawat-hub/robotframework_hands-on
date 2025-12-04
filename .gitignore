@@ -44,3 +44,9 @@ playwright/.auth/
 
 robot_venv*
 *venv*
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

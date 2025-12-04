@@ -33,3 +33,10 @@ npm test
 ```
 .
 # ก่อน push ให้ใส่และเช็คสีเหลืองถ้าเป็น pycharm หลัง push แล้วอยากให้ ใน pycharm update ก็ต้องใช้ git status
+.
+folder ที่จะสร้างใหม่ ควรอยู่ใน tests (หรือตามชื่อที่ตั้ง) ดูจากใน package.json นั้นก่อน
+.
+<!-- // เนื่อง จาก รันผ่าน wsl ใน linux ค้องลงเพิ่ม ขอใช้แค่ chorme เท่านั้น -->
+<!-- npm run test:headed tests/google/login_with_test_step.spec.ts -->
+<!-- npx playwright install --with-deps -->
+<!-- npx playwright install chrome -->
