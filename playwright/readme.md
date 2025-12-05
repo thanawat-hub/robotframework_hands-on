@@ -1,8 +1,8 @@
+#Explain:
 Robot Framework -> set worker ได้แต่ default = 1 
 Playwright -> เรียก โดยตรงกับ chrome เลย ไม่ต้องผ่าน driver -> เป็นเรื่อง overhead (ไม่ต้องผ่านหลายตัวกลาง) 
 "Overhead" ที่หายไปใน Playwright คือ เวลาที่เสียไปกับการสื่อสารผ่านคนกลาง 
-
-
+.
 เพราะใน json comment ไม่ได้
 โดยคำสั่งพวกนี้ที่อยู่ใน value จะต้องไปดูใน docs ของ playwright
   "scripts": {
@@ -13,30 +13,45 @@ Playwright -> เรียก โดยตรงกับ chrome เลย ไ�
      ตอนใช้ เพราะไม่ใช่ตัวรันปกติ จึงต้องใช้คำว่า npm run report
     "report" : "playwright show-report"
   },
-
-note in https://www.notion.so/Day-30-Playwright-Regression-2bda555c74b3804d8897ea8004bae109?source=copy_link
-
-การตั้งชื่อ ไฟล์ test ได้แค่
+.
+## การตั้งชื่อ ไฟล์ test ได้ทั้ง 2 แบบ
 {your_file_name}.spec.ts
 or
 {your_file_name}.test.ts
 .
-how to run file test
-เข้ามาที่ใน folder playwright (ที่มี package.json นั้นก่อน)
-run แบบ อ่านจาก package.json
-```commandline
-npm test {your_file_name}.{spec,test}.ts
-```
-รันทั้งหมด
-```commandline
-npm test
-```
 .
 # ก่อน push ให้ใส่และเช็คสีเหลืองถ้าเป็น pycharm หลัง push แล้วอยากให้ ใน pycharm update ก็ต้องใช้ git status
 .
 folder ที่จะสร้างใหม่ ควรอยู่ใน tests (หรือตามชื่อที่ตั้ง) ดูจากใน package.json นั้นก่อน
 .
-<!-- // เนื่อง จาก รันผ่าน wsl ใน linux ค้องลงเพิ่ม ขอใช้แค่ chorme เท่านั้น -->
-<!-- npm run test:headed tests/google/login_with_test_step.spec.ts -->
-<!-- npx playwright install --with-deps -->
-<!-- npx playwright install chrome -->
+เนื่อง จาก รันผ่าน wsl ใน linux ค้องลงเพิ่ม ขอใช้แค่ chorme เท่านั้น
+```
+npm run test:headed tests/google/login_with_test_step.spec.ts
+npx playwright install --with-deps
+npx playwright install chrome
+```
+note etc in https://www.notion.so/Day-30-Playwright-Regression-2bda555c74b3804d8897ea8004bae109?source=copy_link
+---
+
+## how to run file test
+1. create and active venv
+1.1 commandline on windows
+```
+python -m venv {name_venv}
+{name_venv}\Scripts\activate
+```
+1.2 commandline on linux
+```
+python -m venv {name_venv}
+source {name_venv}/bin/activate
+```
+.
+2. เข้ามาที่ใน folder playwright (ที่มี package.json นั้นก่อน)
+run แบบ อ่านจาก package.json
+```commandline
+npm test {your_file_name}.{spec,test}.ts
+```
+รันไฟล์ทั้งหมดใน folder test
+```commandline
+npm test
+```
